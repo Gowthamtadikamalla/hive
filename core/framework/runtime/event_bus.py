@@ -308,9 +308,7 @@ class EventBus:
                 self._events_dropped += dropped
                 if self._events_dropped == dropped:  # first overflow — warn once
                     logger.warning(
-                        "EventBus history buffer full (%d). "
-                        "Oldest events will be dropped. Increase max_history or "
-                        "enable HIVE_DEBUG_EVENTS for persistent logging.",
+                        "EventBus history buffer full (%d). Oldest events will be dropped.",
                         self._max_history,
                     )
                 self._event_history = self._event_history[-self._max_history :]
